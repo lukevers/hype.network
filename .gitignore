@@ -1,0 +1,8 @@
+/vendor
+/node_modules
+
+.env
+.DS_Store
+
+public/assets/css/*.css
+public/assets/js/*.js

@@ -24,11 +24,10 @@ class DownloadController extends Controller
     /**
      * Default GET function
      * 
-     * @param  string $domain
      * @param  \Illuminate\Http\Request $request
      * @param  string $path
      */
-    public function get($domain, Request $request, $path)
+    public function get(Request $request, $path)
     {
         $file = File::where('hash', '=', $path)->first();
         if (is_null($file))

@@ -21,10 +21,9 @@ class UploadController extends Controller
     /**
      * POST function
      * 
-     * @param  string $domain
      * @param  \Illuminate\Http\Request $request
      */
-    public function post($domain, Request $request)
+    public function post(Request $request)
     {
         $contents = base64_decode($request['contents']);
         return $request['file'];

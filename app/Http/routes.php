@@ -9,7 +9,7 @@
 |
 */
 
-Route::group(['domain' => 'dl.{domain}'], function() {
+Route::group(['domain' => 'dl.'.env('APP_URL')], function() {
 
     Route::controller('/', Files\DownloadController::class);
 
@@ -24,7 +24,7 @@ Route::group(['domain' => 'dl.{domain}'], function() {
 |
 */
 
-Route::group(['domain' => 'up.{domain}'], function() {
+Route::group(['domain' => 'up.'.env('APP_URL')], function() {
 
     Route::controller('/', Files\UploadController::class);
 

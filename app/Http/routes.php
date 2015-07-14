@@ -24,7 +24,6 @@ Route::group(['domain' => 'dl.{domain}'], function() {
 |
 */
 
-
 Route::group(['domain' => 'up.{domain}'], function() {
 
     Route::controller('/', Files\UploadController::class);

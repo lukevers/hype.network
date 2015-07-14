@@ -12,6 +12,16 @@ use Illuminate\Http\Request;
 class DownloadController extends Controller
 {
     /**
+     * Create a new download controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('csrf');
+    }
+
+    /**
      * Default GET function
      * 
      * @param  string $domain

@@ -15,7 +15,7 @@ class UploadController extends Controller
      */
     public function __construct()
     {
-        // authenticate
+        $this->middleware('verify.key');
     }
 
     /**
@@ -23,11 +23,11 @@ class UploadController extends Controller
      * 
      * @param  string $domain
      * @param  \Illuminate\Http\Request $request
-     * @param  string $path
      */
-    public function post($domain, Request $request, $path)
+    public function post($domain, Request $request)
     {
-        // TODO
+        $contents = base64_decode($request['contents']);
+        return $request['file'];
     }
 
 }

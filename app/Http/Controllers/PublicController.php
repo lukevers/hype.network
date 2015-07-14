@@ -13,7 +13,7 @@ class PublicController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('');
+        $this->middleware('csrf');
     }
 
     /**

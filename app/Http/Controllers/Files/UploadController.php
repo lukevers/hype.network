@@ -33,10 +33,11 @@ class UploadController extends Controller
         $hash = File::hash();
 
         // Save the file in the database
-        $file = new File;
-        $file->name = $request['file'];
-        $file->type = $request['type'];
-        $file->hash = $hash;
+        $file        = new File;
+        $file->name  = $request['file'];
+        $file->type  = $request['type'];
+        $file->hash  = $hash;
+        $file->owner = Session::get('user')->id;
         $file->save();
 
         // Put the file at $hash

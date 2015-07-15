@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Session;
 
 use App\User;
 
@@ -22,6 +23,7 @@ class VerifyKey
         foreach(User::all() as $user)
         {
             if ($user->validateKey($key)) {
+                Session::put('user', $user);
                 return $next($request);
             }
         }

@@ -17,7 +17,10 @@ class CreateFileTable extends Migration
             $table->string('name');
             $table->string('type');
             $table->string('hash', 8)->unique();
+            $table->integer('owner')->unsigned();
             $table->timestamps();
+
+            $table->foreign('owner')->references('id')->on('users');
         });
     }
 

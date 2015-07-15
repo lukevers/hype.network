@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Files;
 use Storage;
 use Session;
 
-use App\Http\Controllers\Controller;
 use App\File;
-
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UploadController extends Controller
 {

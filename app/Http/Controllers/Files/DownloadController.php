@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Files;
 use Storage;
 
 use App\File;
-use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DownloadController extends Controller
 {
@@ -40,8 +39,7 @@ class DownloadController extends Controller
             return abort(404);
         }
 
-        $file->views++;
-        $file->save();
+        $file->increment('views');
 
         return response(Storage::get($path))->header('Content-Type', $file->type);
     }

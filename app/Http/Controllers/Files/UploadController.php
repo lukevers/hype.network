@@ -32,15 +32,15 @@ class UploadController extends Controller
         $contents = base64_decode($request['contents']);
         $hash = File::hash();
 
-        // Put the file at $hash
-        Storage::put($hash, $contents);
-
         // Save the file in the database
         $file = new File;
         $file->name = $request['file'];
         $file->type = $request['type'];
         $file->hash = $hash;
         $file->save();
+
+        // Put the file at $hash
+        Storage::put($hash, $contents);
 
         // Return the url of where the file is
         return 'http://dl.' . env('APP_URL') . '/' . $hash;

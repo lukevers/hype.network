@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Files;
 
 use Storage;
+use Session;
 
 use App\Http\Controllers\Controller;
 use App\File;

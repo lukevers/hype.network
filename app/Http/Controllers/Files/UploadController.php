@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Files;
 
+use Storage;
+
 use App\Http\Controllers\Controller;
+use App\File;
 
 use Illuminate\Http\Request;
 
@@ -25,8 +28,22 @@ class UploadController extends Controller
      */
     public function post(Request $request)
     {
+        // Decode the file
         $contents = base64_decode($request['contents']);
-        return $request['file'];
+        $hash = File::hash();
+
+        // Put the file at $hash
+        Storage::put($hash, $contents);
+
+        // Save the file in the database
+        $file = new File;
+        $file->name = $request['file'];
+        $file->type = $request['type'];
+        $file->hash = $hash;
+        $file->save();
+
+        // Return the url of where the file is
+        return 'http://dl.' . env('APP_URL') . '/' . $hash;
     }
 
 }

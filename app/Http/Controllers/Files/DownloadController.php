@@ -35,12 +35,11 @@ class DownloadController extends Controller
             return abort(404);
         }
 
-        $fname = $file->path.$file->name;
-        if (!Storage::exists($fname))
+        if (!Storage::exists($path))
         {
             return abort(404);
         }
 
-        return response(Storage::get($fname))->header('Content-Type', $file->type);
+        return response(Storage::get($path))->header('Content-Type', $file->type);
     }
 }

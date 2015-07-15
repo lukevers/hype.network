@@ -13,8 +13,13 @@ class File extends Model
      */
     protected $table = 'files';
 
-    public function hash()
+    /**
+     * Create hash
+     *
+     * @return string $hash
+     */
+    public static function hash()
     {
-        //$hash = substr(sha1($this->name . microtime()), 0, 8);
+        return substr(bin2hex(openssl_random_pseudo_bytes(8)), 0, 8);
     }
 }

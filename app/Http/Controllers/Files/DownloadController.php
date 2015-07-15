@@ -40,6 +40,9 @@ class DownloadController extends Controller
             return abort(404);
         }
 
+        $file->views++;
+        $file->save();
+
         return response(Storage::get($path))->header('Content-Type', $file->type);
     }
 }

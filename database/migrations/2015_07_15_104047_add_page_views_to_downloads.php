@@ -13,7 +13,11 @@ class AddPageViewsToDownloads extends Migration
     public function up()
     {
         Schema::table('files', function(Blueprint $table) {
-            $table->integer('views')->default(0);
+            if (env('DB_CONNECTION', 'mysql') === 'mysql') {
+                $table->integer('views')->default(0)->after('owner');
+            } else {
+                $table->integer('views')->default(0);
+            }
         });
     }
 

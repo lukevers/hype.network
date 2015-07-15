@@ -34,6 +34,7 @@ class DownloadController extends Controller
             return abort(404);
         }
 
+        $path = $path . '_' . $file->name;
         if (!Storage::exists($path))
         {
             return abort(404);

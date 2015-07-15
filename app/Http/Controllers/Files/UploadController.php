@@ -41,7 +41,8 @@ class UploadController extends Controller
         $file->save();
 
         // Put the file at $hash
-        Storage::put($hash, $contents);
+        $path = $hash . '_' . $request['file'];
+        Storage::put($path, $contents);
 
         // Return the url of where the file is
         return 'http://dl.' . env('APP_URL') . '/' . $hash;

@@ -9,11 +9,12 @@
 |
 */
 
-Route::group(['domain' => 'dl.'.env('APP_URL')], function() {
-
+$downloads = function() {
     Route::controller('/', Files\DownloadController::class);
+};
 
-});
+Route::group(['domain' => 'dl.'  .env('APP_URL')], $downloads);
+Route::group(['domain' => 'h.dl.'.env('APP_URL')], $downloads);
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,12 @@ Route::group(['domain' => 'dl.'.env('APP_URL')], function() {
 |
 */
 
-Route::group(['domain' => 'up.'.env('APP_URL')], function() {
-
+$uploads = function() {
     Route::controller('/', Files\UploadController::class);
+};
 
-});
+Route::group(['domain' => 'up.'  .env('APP_URL')], $uploads);
+Route::group(['domain' => 'h.up.'.env('APP_URL')], $uploads);
 
 /*
 |--------------------------------------------------------------------------

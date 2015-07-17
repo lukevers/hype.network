@@ -24,6 +24,13 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
+     * Path to use when redirected to dashboard.
+     *
+     * @var $redirectPath
+     */
+    protected $redirectPath = '/dashboard';
+
+    /**
      * Create a new authentication controller instance.
      *
      * @return void
@@ -32,6 +39,26 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
         $this->middleware('csrf');
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getRegister()
+    {
+        return view('user.register');
+    }
+
+    /**
+     * Show the application login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getLogin()
+    {
+        return view('user.login');
     }
 
     /**

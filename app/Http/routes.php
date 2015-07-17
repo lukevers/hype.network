@@ -34,6 +34,23 @@ Route::group(['domain' => 'h.up.'.env('APP_URL')], $uploads);
 
 /*
 |--------------------------------------------------------------------------
+| User Routes
+|--------------------------------------------------------------------------
+|
+| These routes handle authentication, registration, and other public user
+| routes.
+|
+*/
+
+Route::group(['prefix' => 'user'], function() {
+    Route::controllers([
+        'password' => Auth\PasswordController::class,
+        ''         => Auth\AuthController::class,
+    ]);
+});
+
+/*
+|--------------------------------------------------------------------------
 | Public Routes
 |--------------------------------------------------------------------------
 |

@@ -4,7 +4,7 @@
         <title>Hype Network</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="/assets/css/app.css">
-        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico?version=1" type="image/x-icon">
     </head>
     <body>
         @yield('content')

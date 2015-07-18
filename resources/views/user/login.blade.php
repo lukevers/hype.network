@@ -1,6 +1,6 @@
 @extends('template')
 @section('content')
 
-x
+coming soon
 
 @endsection

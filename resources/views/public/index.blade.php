@@ -6,7 +6,7 @@
 
 <div class="center public">
     <div class="me">
-        <img src="/assets/img/logo.png">
+        <img src="/assets/img/logo.png" alt="Hype" title="Hype">
     </div>
 </div>
 
